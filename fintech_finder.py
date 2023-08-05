@@ -130,7 +130,7 @@ st.sidebar.markdown("## Client Account Address and Ethernet Balance in Ether")
 
 # @TODO:
 #  Call the `generate_account` function and save it as the variable `account`
-account = generate_account()ß
+account = generate_account(w3)
 
 ##########################################
 
@@ -146,7 +146,12 @@ st.sidebar.write(account.address)
 # @TODO
 # Call `get_balance` function and pass it your account address
 # Write the returned ether balance to the sidebar
-# YOUR CODE HERE
+ether = get_balance(w3, account.address)
+
+# Display the balance of ether in the account 
+st.sidebar.markdown('## Your Balance of Ether')
+st.sidebar.markdown(ether)
+st.sidebar.markdown("---------")
 
 ##########################################
 
@@ -237,11 +242,11 @@ st.sidebar.markdown("## Total Wage in Ether")
 # Calculate total `wage` for the candidate by multiplying the candidate’s hourly
 # rate from the candidate database (`candidate_database[person][3]`) by the
 # value of the `hours` variable
-# YOUR CODE HERE
+wage = float(candidate_database[person][3]) * float(hourly_rate) * float(hours)
 
 # @TODO
 # Write the `wage` calculation to the Streamlit sidebar
-# YOUR CODE HERE
+st.sidebar.write(wage)
 
 ##########################################
 # Step 2 - Part 2:
